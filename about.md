@@ -25,7 +25,7 @@ I love games and figuring out how to beat them. Markets are one of those everlas
 
 I'm a huge fan of house music (Lane 8, Marten Lou, Löffler). I'm a drummer and have dabbled with making music myself.
 
-I'm interested in frontier tech, and have been mostly investing in this area recently (Anthropic, OAI, Fluidstack, PI).
+I'm interested in frontier tech, and have been mostly investing in this area recently.
 
 I spent 2 years studying at UPenn (systems engineering & finance) with the M&T program.
 
