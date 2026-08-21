@@ -7,7 +7,7 @@ Writing is hard. I've always found it difficult to put the majority of my though
 
 I've always shied away from writing publicly. Even X is a lot. I've never been able to post consistently.
 
-AI has made it even easier to be lazy with writing.
+AI has made me even lazier with writing.
 
 Before it's too late, I'm going to start practicing here.
 
