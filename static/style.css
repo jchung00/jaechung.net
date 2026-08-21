@@ -1,0 +1,109 @@
+/* jaechung.net — minimal */
+:root {
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted: #6f6f6f;
+  --rule: #e6e6e6;
+  --link: #1d4ed8;
+  --measure: 38rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121212; --ink: #e8e8e8; --muted: #8a8a8a; --rule: #2a2a2a; --link: #8ab4ff; }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  padding: 4rem 1.25rem 5rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-feature-settings: "kern", "liga";
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.15em; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3.5rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+header .name { color: var(--ink); font-weight: 600; }
+header nav a { color: var(--muted); margin-left: 1.5rem; }
+header nav a[aria-current="page"] { color: var(--ink); }
+header nav a:hover { color: var(--ink); }
+
+h1 { font-size: 1.6rem; font-weight: 600; line-height: 1.25; margin: 0 0 0.35rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.1rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.5rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { padding-left: 1.4rem; margin: 0 0 1.1rem; }
+li { margin-bottom: 0.3rem; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem auto; width: 4rem; }
+blockquote { margin: 1.5rem 0; padding-left: 1rem; border-left: 2px solid var(--rule); color: var(--muted); }
+code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--rule); border-radius: 4px; line-height: 1.5; }
+img { max-width: 100%; height: auto; display: block; margin: 1.5rem auto; }
+figure { margin: 1.5rem 0; }
+figcaption, time, .muted { color: var(--muted); }
+figcaption { font-size: 0.9rem; text-align: center; }
+
+/* Landing */
+.about .motto { margin: 2.5rem 0; color: var(--muted); font-style: italic; }
+
+/* Writings index */
+.writings { list-style: none; padding: 0; margin-top: 2rem; }
+.writings li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+.writings li:last-child { border-bottom: 1px solid var(--rule); }
+.writings li a { color: var(--ink); }
+.writings li time {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding-top: 0.25rem;
+}
+.writings li p { grid-column: 1 / -1; margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Post */
+.post-header { display: block; margin-bottom: 2.5rem; font: inherit; }
+.post-header time { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8rem; }
+.post .todo {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px dashed var(--rule);
+  padding: 0.6rem 0.8rem;
+  margin: 1.5rem 0;
+}
+.back { margin-top: 3.5rem; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8rem; }
+
+footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+footer a { color: var(--muted); margin-right: 1.5rem; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 480px) {
+  body { padding-top: 2.5rem; font-size: 16px; }
+  header { margin-bottom: 2.5rem; }
+}
