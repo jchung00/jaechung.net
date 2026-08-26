@@ -163,7 +163,9 @@ As for the ideal team, I think that some combination of top AI researchers that 
 
 It may be hard for neotrading labs to hire some of the best quant researchers. The good ones are extremely well paid, have several contractual barriers in place making it hard for them to leave, and are somewhat notorious for not being big risk takers in the first place. Ideally, the founding team is already a combination that has great respect and connections within their respective communities.
 
-This may sound somewhat contradictory because I founded Manifold with no quant experience. Well, I don't recommend it. Manifold would probably have reached profitability sooner if I had prior experience. Solving markets with AI is arguably much harder and even more competitive than where I started. It will likely require some truly hardcore people. Jim Simons did it with some of the best scientists and mathematicians.
+This may sound somewhat contradictory because I founded Manifold with no quant experience. Well, I don't recommend it. I don't complain because it turned out well, but Manifold would 
+probably have reached profitability way sooner if I had started with more prior experience. We would have chosen the most efficient direction to converge to the best strategies faster. 
+Solving markets with AI is arguably much harder and even more competitive than where I started. It will likely require some truly hardcore people. Jim Simons did it with some of the best scientists and mathematicians.
 
 Even then, this journey will be far from easy for a startup. They will have to overcome a lot of the built-in advantages that the giants have. It's not impossible. But it definitely won't be a smooth sail where they turn on their agents and they start printing money.
 
