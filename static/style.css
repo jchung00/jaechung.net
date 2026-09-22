@@ -81,6 +81,15 @@ figcaption { font-size: 0.9rem; text-align: center; }
 }
 .writings li p { grid-column: 1 / -1; margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
 
+/* Projects index (shares the list styling above) */
+.projects li .host {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 0.25rem;
+}
+
 /* Post */
 .post-header { display: block; margin-bottom: 2.5rem; font: inherit; }
 .post-header time { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8rem; }

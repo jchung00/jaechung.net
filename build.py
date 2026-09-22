@@ -14,6 +14,12 @@ Add a new piece: drop a .md file into ./posts with a front-matter block:
   ---
 
 The filename (minus .md) becomes the URL: posts/my-piece.md -> /writings/my-piece/
+
+Add a project: append a block to ./projects.md (blocks separated by a blank line):
+
+  title: My project
+  url: https://example.com
+  description: one line shown under the title (optional)
 """
 import re, shutil, html
 from pathlib import Path
@@ -43,9 +49,11 @@ def md(text):
 
 def page(title, body, active, description="", path="/"):
     t = SITE_NAME if title == SITE_NAME else f"{title} — {SITE_NAME}"
+    current = ' aria-current="page"'
     nav = "".join(
-        f'<a href="{href}"{" aria-current=\"page\"" if key == active else ""}>{label}</a>'
-        for key, href, label in [("about", "/", "About"), ("writings", "/writings/", "Writings")]
+        f'<a href="{href}"{current if key == active else ""}>{label}</a>'
+        for key, href, label in [("about", "/", "About"), ("writings", "/writings/", "Writings"),
+                                 ("projects", "/projects/", "Projects")]
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -74,6 +82,21 @@ def page(title, body, active, description="", path="/"):
 </body>
 </html>
 """
+
+def read_projects(path):
+    """projects.md: one block per project, blank-line separated, `key: value` lines."""
+    if not path.exists():
+        return []
+    projects = []
+    for block in re.split(r"\n\s*\n", path.read_text().strip()):
+        entry = {}
+        for line in block.splitlines():
+            if ":" in line and not line.lstrip().startswith("#"):
+                k, v = line.split(":", 1)
+                entry[k.strip()] = v.strip()
+        if entry.get("title") and entry.get("url"):
+            projects.append(entry)
+    return projects
 
 def fmt_date(s):
     y, m, d = (int(x) for x in s.split("-"))
@@ -129,7 +152,21 @@ def build():
     (OUT / "writings" / "index.html").write_text(page(
         "Writings", f'<h1>Writings</h1>\n<ul class="writings">\n{items}\n</ul>', "writings",
         "Writing by Jae Chung", "/writings/"))
-    print(f"built {len(posts)} posts ({len(posts) - len(visible)} drafts) -> {OUT}")
+
+    # Projects
+    projects = read_projects(ROOT / "projects.md")
+    items = "\n".join(
+        f"""<li>
+  <a href="{html.escape(p["url"])}">{html.escape(p["title"])}</a>
+  <span class="host">{html.escape(re.sub(r"^https?://", "", p["url"]).rstrip("/"))}</span>
+  {f'<p>{html.escape(p["description"])}</p>' if p.get("description") else ""}
+</li>""" for p in projects)
+    (OUT / "projects").mkdir()
+    (OUT / "projects" / "index.html").write_text(page(
+        "Projects", f'<h1>Projects</h1>\n<ul class="writings projects">\n{items}\n</ul>', "projects",
+        "Projects by Jae Chung", "/projects/"))
+    print(f"built {len(posts)} posts ({len(posts) - len(visible)} drafts), "
+          f"{len(projects)} projects -> {OUT}")
 
 if __name__ == "__main__":
     build()

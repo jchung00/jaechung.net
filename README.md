@@ -19,6 +19,12 @@ Static site. No framework, no dependencies beyond Python + `markdown`.
       ---
 
   The filename becomes the URL (`posts/inner-voices.md` → `/writings/inner-voices/`).
+- `projects.md` — the `/projects/` list. One block per project, separated by a blank line:
+
+      title: Jev Ethics
+      url: https://jethics.jaechung.net
+      description: optional one-liner
+
 - `images/` — anything here is copied to `/images/`. Reference as `![caption](/images/foo.png)`.
 - `static/style.css` — all styling.
 - Footer links live at the top of `build.py` (`LINKS`).
